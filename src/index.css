@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Bricolage Grotesque', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #ECEAE2;
+    color: #09090B;
+    overflow-x: hidden;
+  }
+
+  html.dark body {
+    background-color: #090A0F;
+    color: #F4F4F5;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Hard 3D Extruded Brutalist Shadows */
+.brutal-shadow {
+  box-shadow: 5px 5px 0px 0px #09090B;
+}
+
+.dark .brutal-shadow {
+  box-shadow: 5px 5px 0px 0px #B8FF01;
+}
+
+.brutal-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #09090B;
+}
+
+.dark .brutal-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #B8FF01;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #09090B;
+}
+
+.dark .brutal-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #B8FF01;
+}
+
+.brutal-btn {
+  transition: transform 140ms cubic-bezier(0.16, 1, 0.3, 1), background-color 140ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutal-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+}
+
+.brutal-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+}
+
+/* 3D Perspective Architectural Floor & Ceiling Grid */
+.scene-3d-viewport {
+  perspective: 850px;
+  perspective-origin: 50% 42%;
+}
+
+.grid-3d-floor {
+  transform-style: preserve-3d;
+  transform: rotateX(68deg) translateZ(-120px) scale(2.2);
+  background-size: 56px 56px;
+  background-image:
+    linear-gradient(to right, rgba(9, 9, 11, 0.22) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.22) 1.5px, transparent 1.5px);
+  animation: grid3dFlow 14s linear infinite;
+}
+
+.dark .grid-3d-floor {
+  background-image:
+    linear-gradient(to right, rgba(184, 255, 1, 0.28) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(184, 255, 1, 0.28) 1.5px, transparent 1.5px);
+}
+
+.grid-3d-ceiling {
+  transform-style: preserve-3d;
+  transform: rotateX(-68deg) translateZ(-180px) scale(2.2);
+  background-size: 72px 72px;
+  background-image:
+    linear-gradient(to right, rgba(9, 9, 11, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.11) 1px, transparent 1px);
+}
+
+.dark .grid-3d-ceiling {
+  background-image:
+    linear-gradient(to right, rgba(184, 255, 1, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 255, 1, 0.14) 1px, transparent 1px);
+}
+
+.grid-back-wall {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(9, 9, 11, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.08) 1px, transparent 1px);
+}
+
+.dark .grid-back-wall {
+  background-image:
+    linear-gradient(to right, rgba(184, 255, 1, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 255, 1, 0.09) 1px, transparent 1px);
+}
+
+@keyframes grid3dFlow {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-3d-floor {
+    animation: none;
+  }
+}
+
+@keyframes brutalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-brutal-in {
+  animation: brutalSlideUp 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

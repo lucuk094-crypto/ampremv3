@@ -1,0 +1,6 @@
+{
+  "name": "AM Prem Brutalist Studio",
+  "description": "Platform aktivasi Alight Motion Pro via Magic Link dengan antarmuka Neo-Brutalist, inspeksi token real-time, dan dukungan penuh deployment Vercel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
